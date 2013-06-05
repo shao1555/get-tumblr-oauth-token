@@ -9,4 +9,6 @@ Gem::Specification.new do |gem|
   gem.homepage = 'https://github.com/shao1555/get-tumblr-oauth-token'
   gem.authors = %w(jugyo shao1555)
   gem.add_runtime_dependency 'oauth', '>= 0'
+  gem.bindir = 'bin'
+  gem.executables << 'get-tumblr-oauth-token'
 end

@@ -2,6 +2,7 @@
 # coding: utf-8
 
 require 'oauth'
+require 'oauth/consumer'
 
 class String
   def color num
@@ -21,13 +22,13 @@ begin
   consumer = OAuth::Consumer.new(
     consumer_key,
     consumer_secret,
-    :site => 'http://api.tumblr.com'
+    :site => 'https://api.tumblr.com'
   )
 
-  request_token = consumer.get_request_token
+  request_token = consumer.get_request_token(oauth_callback: 'http://localhost/')
 
   system('open', request_token.authorize_url) || puts("Access here: #{request_token.authorize_url}\nand...")
-  pin = 'PIN: '.color(32).ask
+  pin = 'OAuth Verifier: '.color(32).ask
 
   access_token = request_token.get_access_token(
     :oauth_token => request_token.token,
