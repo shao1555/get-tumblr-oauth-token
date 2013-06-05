@@ -1,18 +1,22 @@
-require 'rubygems'
+require 'bundler'
+require 'bundler/gem_tasks'
 require 'rake'
 
+$:.unshift(File.expand_path('lib'))
+
 begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = 'get-tumblr-oauth-token'
-    gem.summary = %q{The "get-tumblr-oauth-token" is a command to get OAuth token.}
-    gem.description = %q{The "get-tumblr-oauth-token" is a command to get OAuth token. Let's get OAuth token!}
-    gem.email = 'shao@1555.info'
-    gem.homepage = 'http://github.com/shao1555/get-tumblr-oauth-token'
-    gem.authors = %w(jugyo shao1555)
-    gem.add_dependency 'oauth', '>= 0'
+  require 'rspec/core/rake_task'
+
+  RSpec::Core::RakeTask.new(:spec) do |t|
+    t.rspec_opts = %w[--color --format=documentation]
+    t.pattern = "spec/**/*_spec.rb"
   end
-  Jeweler::GemcutterTasks.new
+
+  task :default => [:spec]
 rescue LoadError
-  puts 'Jeweler (or a dependency) not available. Install it with: gem install jeweler'
+  # don't generate Rspec tasks if we don't have it installed
+end
+
+task :build do
+  system 'gem build get-tumblr-oauth-token'
 end
