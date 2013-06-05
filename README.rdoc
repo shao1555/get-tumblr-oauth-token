@@ -1,8 +1,8 @@
-= get-twitter-oauth-token
+= get-tumblr-oauth-token
 
-The "get-twitter-oauth-token" is a command to get token/secret pair of Twitter OAuth.
+The "get-tumblr-oauth-token" is a command to get token/secret pair of Tumblr OAuth.
 
 Let's get OAuth token!
 
- % gem install get-twitter-oauth-token
- % get-twitter-oauth-token
+ % gem install get-tumblr-oauth-token
+ % get-tumblr-oauth-token

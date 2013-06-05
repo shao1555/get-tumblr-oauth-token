@@ -21,7 +21,7 @@ begin
   consumer = OAuth::Consumer.new(
     consumer_key,
     consumer_secret,
-    :site => 'http://api.twitter.com'
+    :site => 'http://api.tumblr.com'
   )
 
   request_token = consumer.get_request_token
@@ -34,8 +34,8 @@ begin
     :oauth_verifier => pin
   )
 
-  puts "Token: ".color(35) + access_token.token
-  puts "Secret: ".color(35) + access_token.secret
+  puts 'Token: '.color(35) + access_token.token
+  puts 'Secret: '.color(35) + access_token.secret
 rescue
   puts "Error: #{$!}".color(31)
 end
