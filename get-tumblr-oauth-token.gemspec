@@ -7,8 +7,10 @@ Gem::Specification.new do |gem|
   gem.description = %q{The "get-tumblr-oauth-token" is a command to get OAuth token. Let's get OAuth token!}
   gem.email = 'shao@1555.info'
   gem.homepage = 'https://github.com/shao1555/get-tumblr-oauth-token'
-  gem.authors = %w(jugyo shao1555)
+  gem.author = 'Sho Sawada'
   gem.add_runtime_dependency 'oauth', '>= 0'
+  gem.files = Dir['bin/*']
   gem.bindir = 'bin'
+  gem.license = 'MIT'
   gem.executables << 'get-tumblr-oauth-token'
 end
